@@ -1,0 +1,8 @@
+.aside {
+  display: flex;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+}
