@@ -1,0 +1,9 @@
+.aside {
+  display: flex;
+}
+
+/* comentario */
+.category-list {
+  display: flex;
+  flex-direction: column;
+}
