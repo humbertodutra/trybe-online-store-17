@@ -115,6 +115,7 @@ class Home extends React.Component {
                     thumbnail={ product.thumbnail }
                     title={ product.title }
                     adcCartItem={ this.adcCartItem }
+                    id={ product.id }
                   />
                 ))}
               </div>
