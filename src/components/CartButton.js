@@ -7,6 +7,7 @@ class CartButton extends React.Component {
 
       <Link
         data-testid="shopping-cart-button"
+        className="cart-link"
         to="/cart"
       >
         <span>Carrinho</span>

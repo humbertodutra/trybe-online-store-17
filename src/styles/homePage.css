@@ -1,0 +1,28 @@
+body {
+  background: #ebf2fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  align-items: center;
+  background: #05668d;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-link {
+  color: black;
+  font-size: 20px;
+  margin-right: 50px;
+  text-decoration: none;
+}
+
+.title {
+  color: white;
+  font-size: 35px;
+}
+
+.home-page {
+  display: flex;
+}
