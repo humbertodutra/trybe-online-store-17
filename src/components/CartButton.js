@@ -8,7 +8,10 @@ class CartButton extends React.Component {
       <Link
         data-testid="shopping-cart-button"
         className="cart-link"
-        to="/cart"
+        to={ {
+          pathname: '/cart',
+          state: { savedItens: this.props.savedItens }
+        } }
       >
         <span>Carrinho</span>
       </Link>
