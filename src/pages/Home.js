@@ -7,6 +7,9 @@ import {
   getProductsFromCategoryAndQuery,
 } from '../services/api';
 import '../styles/categoryList.css';
+import '../styles/homePage.css';
+import '../styles/mainSection.css';
+import '../styles/productSection.css';
 
 class Home extends React.Component {
   constructor() {
@@ -42,52 +45,74 @@ class Home extends React.Component {
   render() {
     const { categories, search, APIresult, status } = this.state;
     return (
-      <main className="home-page">
-        <CartButton />
-        <h1 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h1>
-        <input
-          type="text"
-          name="search"
-          value={ search }
-          onChange={ this.handleChange }
-          data-testid="query-input"
-        />
-        <button
-          type="button"
-          onClick={ this.fetchProducts }
-          data-testid="query-button"
-        >
-          Pesquisar
-        </button>
-        {status === 'not found' ? (
-          <span> Nenhum produto foi encontrado </span>
-        ) : (
-          <div>
-            {APIresult.map((product) => (
-              <ProductCard
-                key={ product.id }
-                price={ product.price }
-                thumbnail={ product.thumbnail }
-                title={ product.title }
+      <>
+        {
+          // Envolvi o cart button e o titulo em um header por semantica e CSS.
+          // mudei a ordem do aside aqui pra cima pra ajustar ele na esquerda da página.
+          // E por fim coloquei o resto em um section pra fazer o flex em relação ao aside.
+        }
+        <header className="header">
+          <div />
+          <h1 className="title">Online Store</h1>
+          <CartButton />
+        </header>
+        <main className="home-page">
+
+          <aside className="aside">
+            <nav className="category-list">
+              {categories.map((category) => (
+                <CategoryButton
+                  key={ category.id }
+                  category={ category }
+                  search={ search }
+                  fetchProducts={ this.fetchProducts }
+                />
+              ))}
+            </nav>
+          </aside>
+
+          <section className="main-section">
+            <h1 data-testid="home-initial-message">
+              Digite algum termo de pesquisa ou escolha uma categoria.
+            </h1>
+
+            <div className="search-div">
+              <input
+                className="search-input"
+                type="text"
+                name="search"
+                value={ search }
+                onChange={ this.handleChange }
+                data-testid="query-input"
               />
-            ))}
-          </div>
-        )}
-        <aside className="aside">
-          <nav className="category-list">
-            {categories.map((category) => (
-              <CategoryButton
-                key={ category.id }
-                category={ category }
-                search={ search }
-                fetchProducts={ this.fetchProducts }
-              />
-            ))}
-          </nav>
-        </aside>
-      </main>
+              <button
+                className="search-button"
+                type="button"
+                onClick={ this.fetchProducts }
+                data-testid="query-button"
+              >
+                Pesquisar
+              </button>
+            </div>
+
+            {status === 'not found' ? (
+              <span> Nenhum produto foi encontrado </span>
+            ) : (
+              <div className="product-section">
+                {APIresult.map((product) => (
+                  <ProductCard
+                    key={ product.id }
+                    price={ product.price }
+                    thumbnail={ product.thumbnail }
+                    title={ product.title }
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+
+        </main>
+      </>
     );
   }
 }

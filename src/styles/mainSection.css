@@ -1,0 +1,21 @@
+.main-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.main-section h1 {
+  margin-top: 60px;
+}
+
+.search-input {
+  height: 30px;
+  margin: 20px 10px;
+  width: 400px;
+}
+
+.search-button {
+  height: 35px;
+  width: 100px;
+}
