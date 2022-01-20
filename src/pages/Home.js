@@ -33,9 +33,9 @@ class Home extends React.Component {
     this.setState({ search: value });
   };
 
-  fetchProducts = async () => {
+  fetchProducts = async (id) => {
     const { categoria, search } = this.state;
-    const products = await getProductsFromCategoryAndQuery(categoria, search);
+    const products = await getProductsFromCategoryAndQuery(id, search);
     if (products.results.length === 0) this.setState({ status: 'not found' });
     else this.setState({ APIresult: products.results, status: '' });
   };
@@ -79,7 +79,12 @@ class Home extends React.Component {
         <aside className="aside">
           <nav className="category-list">
             {categories.map((category) => (
-              <CategoryButton key={ category.id } category={ category.name } />
+              <CategoryButton
+                key={ category.id }
+                category={ category }
+                search={ search }
+                fetchProducts={ this.fetchProducts }
+              />
             ))}
           </nav>
         </aside>
