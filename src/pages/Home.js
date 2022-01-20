@@ -105,6 +105,7 @@ class Home extends React.Component {
                     price={ product.price }
                     thumbnail={ product.thumbnail }
                     title={ product.title }
+                    id={ product.id }
                   />
                 ))}
               </div>
