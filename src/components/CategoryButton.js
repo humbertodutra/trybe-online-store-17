@@ -2,14 +2,19 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 class CategoryButton extends React.Component {
+  handleClick = async () => {
+    const { fetchProducts, category } = this.props;
+    await fetchProducts(category.id);
+  }
+
   render() {
-    const { category, fetchProducts } = this.props;
+    const { category } = this.props;
     return (
       <button
         data-testid="category"
         type="button"
         className="category-button"
-        onClick={ fetchProducts(category.id) }
+        onClick={ this.handleClick }
       >
         { category.name }
       </button>
@@ -18,7 +23,10 @@ class CategoryButton extends React.Component {
 }
 
 CategoryButton.propTypes = {
-  category: propTypes.string.isRequired,
+  category: propTypes.shape({
+    name: propTypes.string.isRequired,
+    id: propTypes.string.isRequired,
+  }).isRequired,
   fetchProducts: propTypes.func.isRequired,
 };
 

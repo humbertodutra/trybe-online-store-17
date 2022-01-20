@@ -14,7 +14,6 @@ class Home extends React.Component {
     this.state = {
       categories: [],
       search: '',
-      categoria: '',
       APIresult: [],
       status: '',
     };
@@ -33,8 +32,8 @@ class Home extends React.Component {
     this.setState({ search: value });
   };
 
-  fetchProducts = async (id) => {
-    const { categoria, search } = this.state;
+  fetchProducts = async (id = '') => {
+    const { search } = this.state;
     const products = await getProductsFromCategoryAndQuery(id, search);
     if (products.results.length === 0) this.setState({ status: 'not found' });
     else this.setState({ APIresult: products.results, status: '' });
