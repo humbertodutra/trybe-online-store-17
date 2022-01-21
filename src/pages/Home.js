@@ -28,7 +28,6 @@ class Home extends React.Component {
   }
 
   adcCartItem = (item) => {
-    console.log(item)
     this.setState((prevState) => ({
       savedItens: [...prevState.savedItens, item],
     }));
