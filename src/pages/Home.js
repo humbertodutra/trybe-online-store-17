@@ -117,7 +117,6 @@ class Home extends React.Component {
                       id={ product.id }
                     />
                     <button
-                      infos={ product }
                       type="button"
                       data-testid="product-add-to-cart"
                       onClick={ () => this.adcCartItem(product) }
