@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route exact path="/cart" component={ Cart } />
         <Route exact path="/:id" component={ ProductDetails } />
-        <Route path="/cart" component={ Cart } />
         <Route path="/" component={ Home } />
       </Switch>
     </Router>

@@ -19,11 +19,18 @@ class Home extends React.Component {
       search: '',
       APIresult: [],
       status: '',
+      savedItens: [],
     };
   }
 
   componentDidMount() {
     this.fetchCategories();
+  }
+
+  adcCartItem = (item) => {
+    this.setState((prevState) => ({
+      savedItens: [...prevState.savedItens, item],
+    }));
   }
 
   fetchCategories = async () => {
@@ -43,7 +50,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { categories, search, APIresult, status } = this.state;
+    const { categories, search, APIresult, status, savedItens } = this.state;
     return (
       <>
         {
@@ -54,7 +61,9 @@ class Home extends React.Component {
         <header className="header">
           <div />
           <h1 className="title">Online Store</h1>
-          <CartButton />
+          {/* Fonte: https://v5.reactrouter.com/web/api/Link */}
+          {/* É possível passar o state através do Link */}
+          <CartButton savedItens={ savedItens } />
         </header>
         <main className="home-page">
 
@@ -100,13 +109,21 @@ class Home extends React.Component {
             ) : (
               <div className="product-section">
                 {APIresult.map((product) => (
-                  <ProductCard
-                    key={ product.id }
-                    price={ product.price }
-                    thumbnail={ product.thumbnail }
-                    title={ product.title }
-                    id={ product.id }
-                  />
+                  <div key={ product.id }>
+                    <ProductCard
+                      price={ product.price }
+                      thumbnail={ product.thumbnail }
+                      title={ product.title }
+                      id={ product.id }
+                    />
+                    <button
+                      type="button"
+                      data-testid="product-add-to-cart"
+                      onClick={ () => this.adcCartItem(product) }
+                    >
+                      Adicionar ao Carrinho
+                    </button>
+                  </div>
                 ))}
               </div>
             )}
