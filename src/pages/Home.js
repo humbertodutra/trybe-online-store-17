@@ -28,6 +28,7 @@ class Home extends React.Component {
   }
 
   adcCartItem = (item) => {
+    console.log(item)
     this.setState((prevState) => ({
       savedItens: [...prevState.savedItens, item],
     }));
@@ -109,14 +110,22 @@ class Home extends React.Component {
             ) : (
               <div className="product-section">
                 {APIresult.map((product) => (
-                  <ProductCard
-                    key={ product.id }
-                    price={ product.price }
-                    thumbnail={ product.thumbnail }
-                    title={ product.title }
-                    adcCartItem={ this.adcCartItem }
-                    id={ product.id }
-                  />
+                  <div key={ product.id }>
+                    <ProductCard
+                      price={ product.price }
+                      thumbnail={ product.thumbnail }
+                      title={ product.title }
+                      id={ product.id }
+                    />
+                    <button
+                      infos={ product }
+                      type="button"
+                      data-testid="product-add-to-cart"
+                      onClick={ () => this.adcCartItem(product) }
+                    >
+                      Adicionar ao Carrinho
+                    </button>
+                  </div>
                 ))}
               </div>
             )}

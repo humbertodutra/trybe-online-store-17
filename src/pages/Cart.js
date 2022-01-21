@@ -1,11 +1,8 @@
-import React from "react";
-import ProductCard from "../components/ProductCard";
+import React from 'react';
+import propTypes from 'prop-types';
+import ProductCard from '../components/ProductCard';
 
 class Cart extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const {
       location: {
@@ -20,19 +17,29 @@ class Cart extends React.Component {
           </h1>
         ) : (
           savedItens.map((produto) => (
-            <ProductCard
-              data-testid="shopping-cart-product-name"
-              key={ produto.id }
-              price={ produto.price }
-              thumbnail={ produto.thumbnail }
-              title={ produto.title }
-              id={ produto.id }
-            />
+            <div key={ produto.id }>
+              <ProductCard
+                price={ produto.price }
+                thumbnail={ produto.thumbnail }
+                title={ produto.title }
+                id={ produto.id }
+              />
+              <span>Quantidade:</span>
+              <span data-testid="shopping-cart-product-quantity">1</span>
+            </div>
           ))
         )}
       </main>
     );
   }
 }
+
+Cart.propTypes = {
+  location: propTypes.shape({
+    state: propTypes.shape({
+      savedItens: propTypes.arrayOf(propTypes.object.isRequired).isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default Cart;
