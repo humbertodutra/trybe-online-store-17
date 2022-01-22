@@ -3,6 +3,11 @@ import propTypes from 'prop-types';
 import ProductCard from '../components/ProductCard';
 
 class Cart extends React.Component {
+  somaUm = (quantity) => {
+    
+    return quantity;
+  }
+
   render() {
     const {
       location: {
@@ -25,7 +30,10 @@ class Cart extends React.Component {
                 id={ produto.id }
               />
               <span>Quantidade:</span>
-              <span data-testid="shopping-cart-product-quantity">1</span>
+              <span data-testid="shopping-cart-product-quantity"> { produto.quantity } </span>
+              <button type="button" data-testid="product-decrease-quantity"> - </button>
+              <button type="button" data-testid="product-increase-quantity" onClick={ () => this.somaUm(produto.state.quantity) }> + </button>
+
             </div>
           ))
         )}
