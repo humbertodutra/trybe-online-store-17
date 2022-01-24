@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CartButton from '../components/CartButton';
+import adcCartItem from '../services/addCart';
 
 const URL_BASIS = 'https://api.mercadolibre.com/items/';
 
@@ -15,12 +16,6 @@ class ProductDetails extends React.Component {
 
   componentDidMount() {
     this.callDetails();
-  }
-
-  adcCartItem = (item) => {
-    this.setState((prevState) => ({
-      savedItens: [...prevState.savedItens, item],
-    }));
   }
 
    callDetails = async () => {
@@ -61,7 +56,7 @@ class ProductDetails extends React.Component {
            <button
              type="button"
              data-testid="product-detail-add-to-cart"
-             onClick={ () => this.adcCartItem({ ...product, quantity: 1 }) }
+             onClick={ () => adcCartItem(product) }
            >
              Adicionar ao Carrinho
            </button>

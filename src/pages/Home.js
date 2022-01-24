@@ -10,6 +10,7 @@ import '../styles/categoryList.css';
 import '../styles/homePage.css';
 import '../styles/mainSection.css';
 import '../styles/productSection.css';
+import adcCartItem from '../services/addCart';
 
 class Home extends React.Component {
   constructor() {
@@ -26,31 +27,6 @@ class Home extends React.Component {
   componentDidMount() {
     this.fetchCategories();
   }
-
-  adcCartItem = (item) => {
-    const { id, title, thumbnail, price } = item;
-    if (localStorage.length > 0) {
-      const data = JSON.parse(localStorage.getItem('cartItems'));
-      console.log(data);
-      const newData = [...data, {
-        id, title, thumbnail, quantity: 1, price,
-      }];
-      const verifiedItens = this.verifyCart(data, newData);
-      localStorage.setItem('cartItems', JSON.stringify(verifiedItens));
-    } else localStorage.setItem('cartItems', JSON.stringify([{ id, title, thumbnail, quantity: 1, price }]));
-  }
-
-    verifyCart = (data, item) => {
-      if (data.find((info) => info.id === item.id)) {
-        const verifiedItens = data.map((savedI) => {
-          if (item.id === savedI.id) {
-            savedI.quantity += 1;
-          } return verifiedItens;
-        });
-      } else {
-        return [...data, item];
-      }
-    }
 
   fetchCategories = async () => {
     const categories = await getCategories();
@@ -138,7 +114,7 @@ class Home extends React.Component {
                     <button
                       type="button"
                       data-testid="product-add-to-cart"
-                      onClick={ () => this.adcCartItem({ ...product }) }
+                      onClick={ () => adcCartItem(product) }
                     >
                       Adicionar ao Carrinho
                     </button>
