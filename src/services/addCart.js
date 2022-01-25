@@ -15,8 +15,8 @@ const verifyCart = (data, item) => {
 const adcCartItem = (item) => {
   const { id, title, thumbnail, price } = item;
   const newItem = { id, title, thumbnail, quantity: 1, price };
-  if (localStorage.length > 0) {
-    const data = JSON.parse(localStorage.getItem('cartItems'));
+  const data = JSON.parse(localStorage.getItem('cartItems'));
+  if (data) {
     const verifiedItens = verifyCart(data, newItem);
     localStorage.setItem('cartItems', JSON.stringify(verifiedItens));
   } else {
