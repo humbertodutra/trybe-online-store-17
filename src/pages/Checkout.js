@@ -6,7 +6,6 @@ class Checkout extends React.Component {
     super();
     this.state = {
       savedItems: [],
-      total: 0,
     };
   }
 
