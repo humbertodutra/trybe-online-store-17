@@ -10,6 +10,7 @@ import '../styles/categoryList.css';
 import '../styles/homePage.css';
 import '../styles/mainSection.css';
 import '../styles/productSection.css';
+import adcCartItem from '../services/addCart';
 
 class Home extends React.Component {
   constructor() {
@@ -25,12 +26,6 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.fetchCategories();
-  }
-
-  adcCartItem = (item) => {
-    this.setState((prevState) => ({
-      savedItens: [...prevState.savedItens, item],
-    }));
   }
 
   fetchCategories = async () => {
@@ -119,7 +114,7 @@ class Home extends React.Component {
                     <button
                       type="button"
                       data-testid="product-add-to-cart"
-                      onClick={ () => this.adcCartItem(product) }
+                      onClick={ () => adcCartItem(product) }
                     >
                       Adicionar ao Carrinho
                     </button>

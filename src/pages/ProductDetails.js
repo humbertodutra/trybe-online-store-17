@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CartButton from '../components/CartButton';
+import adcCartItem from '../services/addCart';
 
 const URL_BASIS = 'https://api.mercadolibre.com/items/';
 
@@ -19,43 +20,33 @@ class ProductDetails extends React.Component {
 
   componentDidMount() {
     this.callDetails();
-    return (localStorage.length > 0) && this.getData();
+    this.getData();
   }
 
   getData = () => {
     const dados = JSON.parse(localStorage.getItem('reviews'));
-    this.setState({ reviews: dados });
+    if (dados) this.setState({ reviews: dados });
   }
 
-  adcCartItem = (item) => {
-    this.setState((prevState) => ({
-      savedItens: [...prevState.savedItens, item],
-    }));
-  };
+   callDetails = async () => {
+     try {
+       const { match: { params: { id } } } = this.props;
+       const resolve = await fetch(`${URL_BASIS}${id}`);
+       const data = await resolve.json();
+       this.setState({
+         product: data,
+       });
+     } catch (error) {
+       console.log(error);
+     }
+   }
 
-  callDetails = async () => {
-    try {
-      const {
-        match: {
-          params: { id },
-        },
-      } = this.props;
-      const resolve = await fetch(`${URL_BASIS}${id}`);
-      const data = await resolve.json();
-      this.setState({
-        product: data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  handleChange = ({ target }) => {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
-  };
+   handleChange = ({ target }) => {
+     const { name, value } = target;
+     this.setState({
+       [name]: value,
+     });
+   };
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -95,7 +86,7 @@ class ProductDetails extends React.Component {
             <button
               type="button"
               data-testid="product-detail-add-to-cart"
-              onClick={ () => this.adcCartItem(product) }
+              onClick={ () => adcCartItem(product) }
             >
               Adicionar ao Carrinho
             </button>

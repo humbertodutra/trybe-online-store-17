@@ -3,12 +3,47 @@ import propTypes from 'prop-types';
 import ProductCard from '../components/ProductCard';
 
 class Cart extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      savedItens: [],
+      isDisable: false,
+    };
+  }
+
+  componentDidMount() {
+    if (localStorage.length > 0) this.getCartItens();
+  }
+
+  getCartItens = () => {
+    const savedItens = JSON.parse(localStorage.getItem('cartItems'));
+    this.setState({ savedItens });
+  }
+
+  increaseQuantity = (product) => {
+    const { savedItens } = this.state;
+    const newItens = savedItens.map((crrItem) => {
+      if (crrItem.id === product.id) crrItem.quantity += 1;
+      return crrItem;
+    });
+    this.setState({ savedItens: newItens, isDisable: false });
+    localStorage.setItem('cartItems', JSON.stringify(savedItens));
+  }
+
+  decreaseQuantity = (product) => {
+    const { savedItens } = this.state;
+    if (product.quantity === 2) this.setState({ isDisable: true });
+    const newItens = savedItens.map((crrItem) => {
+      if (crrItem.id === product.id) crrItem.quantity -= 1;
+      return crrItem;
+    });
+    this.setState({ savedItens: newItens });
+    localStorage.setItem('cartItems', JSON.stringify(savedItens));
+  }
+
   render() {
-    const {
-      location: {
-        state: { savedItens },
-      },
-    } = this.props;
+    const { savedItens } = this.state;
+    const { isDisable } = this.state;
     return (
       <main>
         {savedItens.length === 0 ? (
@@ -24,8 +59,24 @@ class Cart extends React.Component {
                 title={ produto.title }
                 id={ produto.id }
               />
-              <span>Quantidade:</span>
-              <span data-testid="shopping-cart-product-quantity">1</span>
+              <button
+                type="button"
+                data-testid="product-decrease-quantity"
+                onClick={ () => this.decreaseQuantity(produto) }
+                disabled={ isDisable }
+              >
+                -
+              </button>
+              <span data-testid="shopping-cart-product-quantity">
+                { produto.quantity.toString() }
+              </span>
+              <button
+                type="button"
+                data-testid="product-increase-quantity"
+                onClick={ () => this.increaseQuantity(produto) }
+              >
+                +
+              </button>
             </div>
           ))
         )}
