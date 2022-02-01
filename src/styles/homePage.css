@@ -18,12 +18,12 @@
 }
 
 .search-input {
-  height: 30px;
-  margin: 20px 10px;
-  width: 400px;
   border: none;
   border-radius: 5px;
+  height: 30px;
   height: 40px;
+  margin: 20px 10px;
+  width: 400px;
   width: 500px;
 }
 
@@ -39,12 +39,12 @@
 }
 
 .search-button:hover {
-  background: #346232;
+  background: #569753;;
 }
 
 .search-button:active {
   background-color: #447c42;
-  color: black;
+  font-size: 17px;
 }
 
 .aside {
@@ -64,22 +64,29 @@
 
 .category-button {
   background: #292929;
-  border: none;
+  border: #575656 solid 1px;
   border-radius: 5px;
   color: white;
   cursor: pointer;
+  font-size: 15px;
   height: 35px;
+  margin: 5px 0;
   text-decoration: none;
-  width: 180px;
+  width: 190px;
 }
 
 .category-button:hover {
   background: #f9ca0a;
+  border: none;
   color: black;
 }
 
 .category-button:active {
-  opacity: 0;
-  transition: 0s;
+  font-size: 13px;
 }
 
+.not-found {
+  font-size: 20px;
+  margin-top: 50px;
+  text-align: center;
+}

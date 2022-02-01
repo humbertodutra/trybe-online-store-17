@@ -70,10 +70,10 @@
 }
 
 .addCartBtn:hover {
-  margin: 2px;
+  background: #3056ec;
 }
 
 .addCartBtn:active {
-  margin: 3px;
+  font-size: 14px;
   background: #2c53f1;
 }

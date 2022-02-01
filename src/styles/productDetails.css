@@ -86,7 +86,7 @@
   border-radius: 5px;
   background: #208820;
   color: #eaeeea;
-  font-size: large;
+  font-size: 22px;
   font-family: Verdana, Geneva, Tahoma, sans-serif serif;
   margin: 0 20px 30px;
 }
@@ -97,7 +97,7 @@
 
 .__form--submmit-btn:active {
   background: #208820;
-  height: 33px;
+  font-size: 19px;
 }
 
 .details-page__review {

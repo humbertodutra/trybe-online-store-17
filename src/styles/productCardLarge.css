@@ -1,10 +1,11 @@
-.product-card-list {
-    display: flex;
-    background: #d2e45f;
-    width: 700px;
-    margin: 10px;
-    border-radius: 5px;
-  }
+.product-card-large {
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 40px 60px -20px #0c053e26;
+  display: flex;
+  margin: 20px;
+  width: 700px;
+}
   
   .product-img-link {
     display: flex;
@@ -16,46 +17,55 @@
   }
   
   .title-link {
-    text-decoration: none;
     color: black;
+    text-decoration: none;
     width: 400px;
   }
   
-  .price-n-quantity {
+  .product-card-large__aside--div {
     display: flex;
     justify-content: space-between;
     width: 170px;
   }
   
-  .info-div-list {
+  .product-card-large__info {
     display: flex;
   }
   
-  .info-div-list h2 {
+  .product-card-large__info h2 {
     font-size: 18px;
   }
   
-  .price-card-list {
-    display: flex;
-    justify-content: end;
-    font-size: 20px;
-    padding: 3px;
+  .product-card-large__aside {
     align-self: center;
+    display: flex;
+    font-size: 20px;
+    justify-content: end;
     margin-left: 10px;
+    padding: 3px;
   }
   
-  .price-card-list button {
+  .product-card-large__aside--button {
+    background: #292929;
     border: none;
-    color: black;
-    background: white;
+    border-radius: 3px;
+    color: white;
+    font-size: 20px;
+    width: 25px;
+  }
+
+  .product-card-large__aside--button:hover {
+    background: #414040;
+  }
+
+  .product-card-large__aside--button:active {
+    font-size: 15px;
   }
   
-  .price-span {
+  .__info--price {
     margin-left: 10px;
   }
   
-  .quantity-span {
-    margin-right: 5px;
-    margin-left: 5px;
+  .__info--quantity {
+    margin: 0 5px;
   }
-  

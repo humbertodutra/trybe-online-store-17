@@ -93,7 +93,11 @@ class Home extends React.Component {
             </div>
 
             {status === 'not found' ? (
-              <span> Nenhum produto foi encontrado </span>
+              <span
+                className="not-found"
+              >
+                Nenhum produto foi encontrado 😞
+              </span>
             ) : (
               <div className="product-section">
                 {APIresult.map((product) => (

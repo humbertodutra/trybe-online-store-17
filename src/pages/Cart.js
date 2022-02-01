@@ -48,10 +48,13 @@ class Cart extends React.Component {
       <>
         <Header />
         <main className="cart-page">
-          <section className="cart-list-section">
+          <section className="cart-page__list-section">
             {savedItens.length === 0 ? (
-              <h1 data-testid="shopping-cart-empty-message">
-                Seu carrinho está vazio
+              <h1
+                data-testid="shopping-cart-empty-message"
+                className="cart__not-found"
+              >
+                Seu carrinho está vazio 😢
               </h1>
             ) : (
               savedItens.map((product) => (
@@ -66,24 +69,33 @@ class Cart extends React.Component {
                     decreaseQuantity={ this.decreaseQuantity }
                   />
                   {
-                    // Criei um componente ProductCardList pra usar no carrinho
+                    // Criei um componente ProductCardLarge pra usar no carrinho
                     // e joguei os botões lá dentro.
                   }
                 </div>
               ))
             )}
           </section>
-          <aside className="checkout-aside">
-            <Link to="/checkout">
-              <button
-                data-testid="checkout-products"
-                type="button"
-                className="checkout-button"
-              >
-                Finalizar Compra
-              </button>
-            </Link>
-          </aside>
+          {
+            savedItens.length !== 0 && (
+              <aside className="cart-page__aside">
+                <span
+                  className="cart-page__aside--price"
+                >
+                  Total: R$ xx,xx
+                </span>
+                <Link to="/checkout">
+                  <button
+                    data-testid="checkout-products"
+                    type="button"
+                    className="checkout-button"
+                  >
+                    Finalizar Compra
+                  </button>
+                </Link>
+              </aside>
+            )
+          }
         </main>
       </>
     );
