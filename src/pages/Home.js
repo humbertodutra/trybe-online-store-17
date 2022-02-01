@@ -1,16 +1,12 @@
 import React from 'react';
-import CartButton from '../components/CartButton';
 import CategoryButton from '../components/CategoryButton';
 import ProductCard from '../components/ProductCard';
 import {
   getCategories,
   getProductsFromCategoryAndQuery,
 } from '../services/api';
-import '../styles/categoryList.css';
+import Header from '../components/Header';
 import '../styles/homePage.css';
-import '../styles/mainSection.css';
-import '../styles/productSection.css';
-import adcCartItem from '../services/addCart';
 
 class Home extends React.Component {
   constructor() {
@@ -20,7 +16,6 @@ class Home extends React.Component {
       search: '',
       APIresult: [],
       status: '',
-      savedItens: [],
     };
   }
 
@@ -45,21 +40,20 @@ class Home extends React.Component {
   };
 
   render() {
-    const { categories, search, APIresult, status, savedItens } = this.state;
+    const { categories, search, APIresult, status } = this.state;
     return (
       <>
+        <Header />
         {
-          // Envolvi o cart button e o titulo em um header por semantica e CSS.
+          // Criei um componente para o Header, evitar reptir o código em cada página.
           // mudei a ordem do aside aqui pra cima pra ajustar ele na esquerda da página.
           // E por fim coloquei o resto em um section pra fazer o flex em relação ao aside.
         }
-        <header className="header">
+        {/* <header className="header">
           <div />
           <h1 className="title">Online Store</h1>
           {/* Fonte: https://v5.reactrouter.com/web/api/Link */}
-          {/* É possível passar o state através do Link */}
-          <CartButton savedItens={ savedItens } />
-        </header>
+        {/* É possível passar o state através do Link */}
         <main className="home-page">
 
           <aside className="aside">
@@ -76,11 +70,10 @@ class Home extends React.Component {
           </aside>
 
           <section className="main-section">
-            <h1 data-testid="home-initial-message">
-              Digite algum termo de pesquisa ou escolha uma categoria.
-            </h1>
-
             <div className="search-div">
+              <h1 data-testid="home-initial-message">
+                Digite algum termo de pesquisa ou escolha uma categoria.
+              </h1>
               <input
                 className="search-input"
                 type="text"
@@ -110,14 +103,8 @@ class Home extends React.Component {
                       thumbnail={ product.thumbnail }
                       title={ product.title }
                       id={ product.id }
+                      product={ product }
                     />
-                    <button
-                      type="button"
-                      data-testid="product-add-to-cart"
-                      onClick={ () => adcCartItem(product) }
-                    >
-                      Adicionar ao Carrinho
-                    </button>
                   </div>
                 ))}
               </div>

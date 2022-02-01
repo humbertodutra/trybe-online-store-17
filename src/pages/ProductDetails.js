@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CartButton from '../components/CartButton';
+import Header from '../components/Header';
 import adcCartItem from '../services/addCart';
 
 const URL_BASIS = 'https://api.mercadolibre.com/items/';
@@ -10,7 +10,6 @@ class ProductDetails extends React.Component {
     super();
     this.state = {
       product: {},
-      savedItens: [],
       email: '',
       rating: '',
       comment: '',
@@ -66,16 +65,12 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { product, savedItens, email, comment, reviews } = this.state;
+    // Fiz um componente para o Header, já que estavamos repetindo código
+    // em cada página é só chamar o Header.
+    const { product, email, comment, reviews } = this.state;
     return (
       <>
-        <header className="header">
-          <div />
-          <h1 className="title">Online Store</h1>
-          {/* Fonte: https://v5.reactrouter.com/web/api/Link */}
-          {/* É possível passar o state através do Link */}
-          <CartButton savedItens={ savedItens } />
-        </header>
+        <Header />
         <main className="detais-page">
           <section className="details-container">
             <h1 data-testid="product-detail-name">{product.title}</h1>

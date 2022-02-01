@@ -1,5 +1,6 @@
 import React from 'react';
-import ProductCard from '../components/ProductCard';
+import Header from '../components/Header';
+import ProductCardList from '../components/ProductCardList';
 
 class Checkout extends React.Component {
   constructor() {
@@ -23,9 +24,10 @@ class Checkout extends React.Component {
     let total = 0;
     return (
       <div className="checkout-page">
-        <section className="purchase-preview">
+        <Header />
+        <section className="checkout-page__content">
           <ul
-            className="checkout-list"
+            className="checkoutPage__content--list"
           />
           {
             savedItems.map((crrItem) => {
@@ -35,11 +37,12 @@ class Checkout extends React.Component {
                 <li
                   key={ crrItem.id }
                 >
-                  <ProductCard
+                  <ProductCardList
                     thumbnail={ crrItem.thumbnail }
                     price={ crrItem.price }
                     title={ crrItem.title }
                     id={ crrItem.id }
+                    product={ crrItem }
                   />
                   <span>{ `Qnt ${crrItem.quantity}` }</span>
                   <br />
@@ -48,11 +51,15 @@ class Checkout extends React.Component {
               );
             })
           }
-          <span>{`Total =>>>> ${total}`}</span>
         </section>
-        <section className="form-section">
+        <aside className="checkout-page__aside">
+          <span
+            className="checkout-page__total"
+          >
+            {`Total =>>>> ${total}`}
+          </span>
           <p>Informação do Comprador</p>
-          <form className="checkout-form" onSubmit={ this.onSubmitButtonClick }>
+          <form className="checkout-page__form" onSubmit={ this.onSubmitButtonClick }>
             <input
               data-testid="checkout-fullname"
               placeholder="Nome Completo"
@@ -114,7 +121,7 @@ class Checkout extends React.Component {
               <option value="SC">SC</option>
             </select>
           </form>
-        </section>
+        </aside>
       </div>
     );
   }

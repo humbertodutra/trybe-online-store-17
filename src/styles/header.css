@@ -1,0 +1,20 @@
+.header {
+    align-items: center;
+    background: #f3ed4c;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+  
+  .cart-link {
+    color: black;
+    font-size: 20px;
+    margin-right: 50px;
+    text-decoration: none;
+  }
+  
+  .title {
+    color: #447c42;
+    font-size: 35px;
+    margin-left: 40%;
+  }
