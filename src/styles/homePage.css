@@ -9,8 +9,8 @@
 }
 
 .main-section h1 {
-  margin-top: 60px;
   font-size: 20px;
+  margin-top: 60px;
 }
 
 .search-div {
@@ -20,26 +20,23 @@
 .search-input {
   border: none;
   border-radius: 5px;
-  height: 30px;
   height: 40px;
   margin: 20px 10px;
-  width: 400px;
   width: 500px;
 }
 
 .search-button {
   background: #447c42;
+  border: none;
   border-radius: 3px;
   color: white;
   font-size: 19px;
-  height: 35px;
-  width: 150px;
-  border: none;
   height: 40px;
+  width: 150px;
 }
 
 .search-button:hover {
-  background: #569753;;
+  background: #569753;
 }
 
 .search-button:active {
