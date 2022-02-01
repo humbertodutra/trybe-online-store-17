@@ -43,7 +43,7 @@
 }
 
 .details-page__form {
-  border-bottom: solid black 1px;
+  border-bottom: solid rgb(177, 176, 176) 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

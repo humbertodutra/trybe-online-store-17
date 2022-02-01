@@ -1,0 +1,80 @@
+.checkout-page__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.__main--content {
+  align-self: center;
+  display: flex;
+  height: fit-content;
+  border-bottom: solid white 2px;
+}
+
+.checkoutPage__content--list {
+  align-self: center;
+  list-style: none;
+}
+
+.__main--aside {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-size: 40px;
+  margin: 90px;
+}
+
+.checkout-page__form {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  width: 700px;
+}
+
+.__form--input {
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 30px;
+  margin: 10px 5px;
+  width: 300px;
+}
+
+.__form--select {
+  background: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 30px;
+  margin: 10px 5px;
+  width: 100px;
+}
+
+.__form--payment {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.__form--purchase {
+  align-self: center;
+  background: #117552;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  font-size: 19px;
+  font-weight: 600;
+  height: 50px;
+  margin-top: 50px;
+  width: 300px;
+}
+
+.__form--purchase:hover {
+  background: #159468;
+}
+
+.__form--purchase:active {
+  font-size: 18px;
+}

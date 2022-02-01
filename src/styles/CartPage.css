@@ -12,32 +12,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 100px;
   width: 500px;
+  height: 300px;
 }
 
 .cart-page__aside--price {
   font-size: 30px;
-}
-
-.checkout-button {
-  background: #117552;
-  border: none;
-  border-radius: 3px;
-  color: white;
-  height: 50px;
-  font-size: 19px;
-  font-weight: 600;
-  width: 200px;
-}
-
-.checkout-button:hover {
-  background: #159468;
-}
-
-.checkout-button:active {
-  font-size: 18px;
 }
 
 .cart__not-found {

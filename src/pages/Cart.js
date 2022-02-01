@@ -1,9 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 import Header from '../components/Header';
-import ProductCardList from '../components/ProductCardList';
+import ProductCardLarge from '../components/ProductCardLarge';
+import CheckoutBtn from '../components/CheckoutBtn';
+import KeepShoppingBtn from '../components/KeepShoppingBtn';
 import '../styles/CartPage.css';
+
+// como o ProductCardLarge é usado tanto no checkout page como no cart page
+// fiz uma renderização condicional para os botões de controle de quantidade.
+const CHECKOUT__PAGE = false;
 
 class Cart extends React.Component {
   constructor() {
@@ -59,7 +64,7 @@ class Cart extends React.Component {
             ) : (
               savedItens.map((product) => (
                 <div key={ product.id }>
-                  <ProductCardList
+                  <ProductCardLarge
                     price={ product.price }
                     thumbnail={ product.thumbnail }
                     title={ product.title }
@@ -67,6 +72,7 @@ class Cart extends React.Component {
                     product={ product }
                     increaseQuantity={ this.increaseQuantity }
                     decreaseQuantity={ this.decreaseQuantity }
+                    checkoutPage={ CHECKOUT__PAGE }
                   />
                   {
                     // Criei um componente ProductCardLarge pra usar no carrinho
@@ -84,15 +90,8 @@ class Cart extends React.Component {
                 >
                   Total: R$ xx,xx
                 </span>
-                <Link to="/checkout">
-                  <button
-                    data-testid="checkout-products"
-                    type="button"
-                    className="checkout-button"
-                  >
-                    Finalizar Compra
-                  </button>
-                </Link>
+                <KeepShoppingBtn />
+                <CheckoutBtn />
               </aside>
             )
           }
