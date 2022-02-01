@@ -7,9 +7,9 @@
 
 .__main--content {
   align-self: center;
+  border-bottom: solid white 2px;
   display: flex;
   height: fit-content;
-  border-bottom: solid white 2px;
 }
 
 .checkoutPage__content--list {
@@ -18,9 +18,9 @@
 }
 
 .__main--aside {
+  align-self: center;
   display: flex;
   flex-direction: column;
-  align-self: center;
   font-size: 40px;
   margin: 90px;
 }
@@ -54,8 +54,8 @@
 
 .__form--payment {
   display: flex;
-  justify-content: center;
   height: 100px;
+  justify-content: center;
 }
 
 .__form--purchase {

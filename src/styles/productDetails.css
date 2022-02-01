@@ -46,8 +46,8 @@
   border-bottom: solid rgb(177, 176, 176) 1px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   height: 450px;
+  justify-content: space-between;
   margin-left: 200px;
   width: 1000px;
 }
@@ -67,6 +67,7 @@
 }
 
 .__form--rating {
+
   /* margin: 20px 0; */
   margin-left: 20px;
 }
@@ -80,15 +81,14 @@
 }
 
 .__form--submmit-btn {
-  width: 510px;
-  height: 35px;
+  background: #208820;
   border: none;
   border-radius: 5px;
-  background: #208820;
   color: #eaeeea;
   font-size: 22px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif serif;
+  height: 35px;
   margin: 0 20px 30px;
+  width: 510px;
 }
 
 .__form--submmit-btn:hover {
@@ -103,16 +103,14 @@
 .details-page__review {
   margin: 50px 200px;
   width: 600px;
-  /* display: flex; */
 }
 
 .__review--div {
+  border-bottom: solid #d3d0d0 1px;
   display: flex;
   flex-direction: column;
   height: 150px;
   margin: 50px 10px;
-  border-bottom: solid #d3d0d0 1px;
-  /* background: red; */
 }
 
 .--review-rating {

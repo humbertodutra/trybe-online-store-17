@@ -12,10 +12,10 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: 300px;
   justify-content: space-evenly;
   margin-top: 100px;
   width: 500px;
-  height: 300px;
 }
 
 .cart-page__aside--price {
