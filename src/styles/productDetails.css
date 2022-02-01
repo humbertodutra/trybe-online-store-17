@@ -1,0 +1,124 @@
+.details-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.details-page__container {
+  align-self: center;
+  background: white;
+  display: flex;
+  height: 500px;
+  margin-top: 50px;
+  width: 1000px;
+}
+
+.__container--info {
+  margin-right: 20px;
+}
+
+.__container--info--name {
+  font-size: 23px;
+  margin-left: 15px;
+  width: 700px;
+}
+
+.__container--info--image {
+  border-radius: 3px;
+  margin: 30px 100px;
+  width: 350px;
+}
+
+.__container--aside {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.__container--aside--price {
+  align-self: center;
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.details-page__form {
+  border-bottom: solid rgb(177, 176, 176) 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;
+  margin-left: 200px;
+  width: 1000px;
+}
+
+.__form--label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin-left: 20px;
+  width: fit-content;
+}
+
+.__form--input {
+  margin-top: 5px;
+  padding: 5px;
+  width: 300px;
+}
+
+.__form--rating {
+  /* margin: 20px 0; */
+  margin-left: 20px;
+}
+
+.__form--textarea {
+  border-radius: 3px;
+  height: 80px;
+  margin-top: 5px;
+  resize: none;
+  width: 500px;
+}
+
+.__form--submmit-btn {
+  width: 510px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background: #208820;
+  color: #eaeeea;
+  font-size: 22px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif serif;
+  margin: 0 20px 30px;
+}
+
+.__form--submmit-btn:hover {
+  background: #4ca04c;
+}
+
+.__form--submmit-btn:active {
+  background: #208820;
+  font-size: 19px;
+}
+
+.details-page__review {
+  margin: 50px 200px;
+  width: 600px;
+  /* display: flex; */
+}
+
+.__review--div {
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  margin: 50px 10px;
+  border-bottom: solid #d3d0d0 1px;
+  /* background: red; */
+}
+
+.--review-rating {
+  margin: 5px;
+}
+
+.--review-comment {
+  margin: 15px 0;
+}

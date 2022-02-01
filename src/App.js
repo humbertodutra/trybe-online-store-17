@@ -4,6 +4,9 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails';
 import Checkout from './pages/Checkout';
+import './styles/productCardLarge.css';
+import './styles/ProductCardDefault.css';
+import './default.css';
 
 function App() {
   return (

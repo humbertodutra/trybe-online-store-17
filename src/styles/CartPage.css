@@ -1,0 +1,30 @@
+.cart-page {
+  display: flex;
+  justify-content: center;
+}
+
+.cart-page__list-section {
+  align-self: center;
+  margin-top: 100px;
+}
+
+.cart-page__aside {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 100px;
+  width: 500px;
+  height: 300px;
+}
+
+.cart-page__aside--price {
+  font-size: 30px;
+}
+
+.cart__not-found {
+  font-size: 30px;
+  text-align: center;
+  width: 100vw;
+}
+

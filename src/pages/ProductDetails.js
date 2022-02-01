@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CartButton from '../components/CartButton';
+import Header from '../components/Header';
 import adcCartItem from '../services/addCart';
+import '../styles/productDetails.css';
 
 const URL_BASIS = 'https://api.mercadolibre.com/items/';
 
@@ -10,7 +11,6 @@ class ProductDetails extends React.Component {
     super();
     this.state = {
       product: {},
-      savedItens: [],
       email: '',
       rating: '',
       comment: '',
@@ -66,102 +66,142 @@ class ProductDetails extends React.Component {
   }
 
   render() {
-    const { product, savedItens, email, comment, reviews } = this.state;
+    // Fiz um componente para o Header, já que estavamos repetindo código
+    // em cada página é só chamar o Header.
+    const { product, email, comment, reviews } = this.state;
     return (
       <>
-        <header className="header">
-          <div />
-          <h1 className="title">Online Store</h1>
-          {/* Fonte: https://v5.reactrouter.com/web/api/Link */}
-          {/* É possível passar o state através do Link */}
-          <CartButton savedItens={ savedItens } />
-        </header>
-        <main className="detais-page">
-          <section className="details-container">
-            <h1 data-testid="product-detail-name">{product.title}</h1>
-            <div>
-              <img src={ product.thumbnail } alt={ product.title } />
+        <Header />
+        <main className="details-page">
+          <section className="details-page__container">
+            <div className="__container--info">
+              <h1
+                className="__container--info--name"
+                data-testid="product-detail-name"
+              >
+                {product.title}
+              </h1>
+              <img
+                src={ product.thumbnail }
+                alt={ product.title }
+                className="__container--info--image"
+              />
             </div>
-            <div>{product.price}</div>
-            <button
-              type="button"
-              data-testid="product-detail-add-to-cart"
-              onClick={ () => adcCartItem(product) }
-            >
-              Adicionar ao Carrinho
-            </button>
+            <aside className="__container--aside">
+              <span
+                className="__container--aside--price"
+              >
+                {`R$ ${product.price}`}
+              </span>
+              <button
+                className="addCartBtn"
+                type="button"
+                data-testid="product-detail-add-to-cart"
+                onClick={ () => adcCartItem(product) }
+              >
+                Adicionar ao Carrinho
+              </button>
+            </aside>
           </section>
-          <form onSubmit={ this.handleSubmit }>
-            <h1>Avaliações</h1>
-            <input
-              name="email"
-              type="email"
-              placeholder="Email"
-              data-testid="product-detail-email"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-            <input
-              name="rating"
-              type="radio"
-              value="1"
-              data-testid="1-rating"
-              onChange={ this.handleChange }
-            />
-            <input
-              name="rating"
-              type="radio"
-              value="2"
-              data-testid="2-rating"
-              onChange={ this.handleChange }
-            />
-            <input
-              name="rating"
-              type="radio"
-              value="3"
-              data-testid="3-rating"
-              onChange={ this.handleChange }
-            />
-            <input
-              name="rating"
-              type="radio"
-              value="4"
-              data-testid="4-rating"
-              onChange={ this.handleChange }
-            />
-            <input
-              name="rating"
-              type="radio"
-              value="5"
-              data-testid="5-rating"
-              onChange={ this.handleChange }
-            />
-            <textarea
-              name="comment"
-              placeholder="Mensagem (opcional)"
-              data-testid="product-detail-evaluation"
-              value={ comment }
-              onChange={ this.handleChange }
-            />
-            <button type="submit" data-testid="submit-review-btn">
+          <form
+            onSubmit={ this.handleSubmit }
+            className="details-page__form"
+          >
+            <h1>Deixe sua avaliação</h1>
+            <label
+              className="__form--label"
+              htmlFor="email"
+            >
+              E-mail
+              <input
+                className="__form--input"
+                id="email"
+                name="email"
+                type="email"
+                placeholder="exemplo@exemplo.com"
+                data-testid="product-detail-email"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <div className="__form--rating">
+              <input
+                name="rating"
+                type="radio"
+                value="1"
+                data-testid="1-rating"
+                onChange={ this.handleChange }
+              />
+              <input
+                name="rating"
+                type="radio"
+                value="2"
+                data-testid="2-rating"
+                onChange={ this.handleChange }
+              />
+              <input
+                name="rating"
+                type="radio"
+                value="3"
+                data-testid="3-rating"
+                onChange={ this.handleChange }
+              />
+              <input
+                name="rating"
+                type="radio"
+                value="4"
+                data-testid="4-rating"
+                onChange={ this.handleChange }
+              />
+              <input
+                name="rating"
+                type="radio"
+                value="5"
+                data-testid="5-rating"
+                onChange={ this.handleChange }
+              />
+            </div>
+            <label
+              htmlFor="comment"
+              className="__form--label"
+            >
+              Seu comentário
+              <textarea
+                id="comment"
+                className="__form--textarea"
+                name="comment"
+                placeholder="Mensagem (opcional)"
+                data-testid="product-detail-evaluation"
+                value={ comment }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <button
+              type="submit"
+              data-testid="submit-review-btn"
+              className="__form--submmit-btn"
+            >
               Avaliar
             </button>
           </form>
-          {
-            (reviews.length > 0) && (
-              reviews.map((review) => (
-                <div key={ review.email }>
-                  <h3>{review.email}</h3>
-                  <span>{review.comment}</span>
-                  <br />
-                  <span>
-                    nota:
-                    {review.rating}
-                  </span>
-                </div>
-              ))
-            )
-          }
+          <section className="details-page__review">
+            {
+              (reviews.length > 0) && (
+                reviews.map((review) => (
+                  <div
+                    key={ review.email }
+                    className="__review--div"
+                  >
+                    <h3>{review.email}</h3>
+                    <span className="--review-rating">
+                      {`Nota: ${review.rating}`}
+                    </span>
+                    <span className="--review-comment">{review.comment}</span>
+                  </div>
+                ))
+              )
+            }
+          </section>
         </main>
       </>
     );
