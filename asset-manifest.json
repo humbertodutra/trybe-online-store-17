@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/humbertodutra/trybe-online-store-17/static/css/main.aaac9626.chunk.css",
-    "main.js": "/humbertodutra/trybe-online-store-17/static/js/main.e17cdf99.chunk.js",
-    "main.js.map": "/humbertodutra/trybe-online-store-17/static/js/main.e17cdf99.chunk.js.map",
+    "main.js": "/humbertodutra/trybe-online-store-17/static/js/main.ed2e2bee.chunk.js",
+    "main.js.map": "/humbertodutra/trybe-online-store-17/static/js/main.ed2e2bee.chunk.js.map",
     "runtime-main.js": "/humbertodutra/trybe-online-store-17/static/js/runtime-main.24079d8b.js",
     "runtime-main.js.map": "/humbertodutra/trybe-online-store-17/static/js/runtime-main.24079d8b.js.map",
     "static/js/2.c87a54ad.chunk.js": "/humbertodutra/trybe-online-store-17/static/js/2.c87a54ad.chunk.js",
     "static/js/2.c87a54ad.chunk.js.map": "/humbertodutra/trybe-online-store-17/static/js/2.c87a54ad.chunk.js.map",
     "index.html": "/humbertodutra/trybe-online-store-17/index.html",
-    "precache-manifest.6b47f80f7f7b73e48f91448430233ab2.js": "/humbertodutra/trybe-online-store-17/precache-manifest.6b47f80f7f7b73e48f91448430233ab2.js",
+    "precache-manifest.cfca3420d1a3c214fd7da41e2ecbcdec.js": "/humbertodutra/trybe-online-store-17/precache-manifest.cfca3420d1a3c214fd7da41e2ecbcdec.js",
     "service-worker.js": "/humbertodutra/trybe-online-store-17/service-worker.js",
     "static/css/main.aaac9626.chunk.css.map": "/humbertodutra/trybe-online-store-17/static/css/main.aaac9626.chunk.css.map",
     "static/js/2.c87a54ad.chunk.js.LICENSE.txt": "/humbertodutra/trybe-online-store-17/static/js/2.c87a54ad.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.24079d8b.js",
     "static/js/2.c87a54ad.chunk.js",
     "static/css/main.aaac9626.chunk.css",
-    "static/js/main.e17cdf99.chunk.js"
+    "static/js/main.ed2e2bee.chunk.js"
   ]
 }
