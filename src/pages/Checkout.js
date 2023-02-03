@@ -49,16 +49,16 @@ class Checkout extends React.Component {
                   total += itemTotal;
                   return (
                     <li
-                      key={ crrItem.id }
+                      key={crrItem.id}
                     >
                       <ProductCardLarge
-                        thumbnail={ crrItem.thumbnail }
-                        price={ crrItem.price }
-                        title={ crrItem.title }
-                        id={ crrItem.id }
-                        product={ crrItem }
-                        checkoutPage={ CHECKOUT__PAGE }
-                        itemTotal={ itemTotal }
+                        thumbnail={crrItem.thumbnail}
+                        price={crrItem.price}
+                        title={crrItem.title}
+                        id={crrItem.id}
+                        product={crrItem}
+                        checkoutPage={CHECKOUT__PAGE}
+                        itemTotal={itemTotal}
                       />
                     </li>
                   );
@@ -74,7 +74,7 @@ class Checkout extends React.Component {
               <KeepShoppingBtn />
             </aside>
           </section>
-          <form className="checkout-page__form" onSubmit={ this.onSubmitButtonClick }>
+          <form className="checkout-page__form" onSubmit={this.onSubmitButtonClick}>
             <h2>Informações do Comprador</h2>
             <div className="__form--personal-info">
               <input
@@ -140,43 +140,50 @@ class Checkout extends React.Component {
             </select>
             <fieldset className="__form--payment">
               <legend>Forma de pagamento</legend>
+
+
               <label htmlFor="credito">
-                Cartão de Crédito
                 <input
                   id="credito"
                   type="radio"
                   value="credito"
+                  name="paymentMethod"
                 />
+                Cartão de Crédito
               </label>
 
               <label htmlFor="debito">
-                Cartão de Débito
                 <input
                   id="debito"
                   type="radio"
                   value="debito"
+                  name="paymentMethod"
                 />
+                Cartão de Débito
               </label>
 
               <label htmlFor="boleto">
-                Boleto Bancário
                 <input
                   id="boleto"
                   type="radio"
                   value="boleto"
+                  name="paymentMethod"
                 />
+                Boleto Bancário
               </label>
 
               <label htmlFor="pix">
-                Pix
                 <input
                   id="pix"
                   type="radio"
-                  value="boleto"
+                  value="pix"
+                  name="paymentMethod"
                 />
+                Pix
               </label>
 
             </fieldset>
+
             <button
               className="__form--purchase"
               type="submit"

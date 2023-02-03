@@ -60,32 +60,34 @@ class Home extends React.Component {
             <nav className="category-list">
               {categories.map((category) => (
                 <CategoryButton
-                  key={ category.id }
-                  category={ category }
-                  search={ search }
-                  fetchProducts={ this.fetchProducts }
+                  key={category.id}
+                  category={category}
+                  search={search}
+                  fetchProducts={this.fetchProducts}
                 />
               ))}
             </nav>
           </aside>
 
           <section className="main-section">
+
             <div className="search-div">
               <h1 data-testid="home-initial-message">
                 Digite algum termo de pesquisa ou escolha uma categoria.
               </h1>
+             <p> Notice: This application fetches data from "Mercado Livre api", it may take a few seconds for the products to load </p>
               <input
                 className="search-input"
                 type="text"
                 name="search"
-                value={ search }
-                onChange={ this.handleChange }
+                value={search}
+                onChange={this.handleChange}
                 data-testid="query-input"
               />
               <button
                 className="search-button"
                 type="button"
-                onClick={ this.fetchProducts }
+                onClick={this.fetchProducts}
                 data-testid="query-button"
               >
                 Pesquisar
@@ -101,13 +103,13 @@ class Home extends React.Component {
             ) : (
               <div className="product-section">
                 {APIresult.map((product) => (
-                  <div key={ product.id }>
+                  <div key={product.id}>
                     <ProductCard
-                      price={ product.price }
-                      thumbnail={ product.thumbnail }
-                      title={ product.title }
-                      id={ product.id }
-                      product={ product }
+                      price={product.price}
+                      thumbnail={product.thumbnail}
+                      title={product.title}
+                      id={product.id}
+                      product={product}
                     />
                   </div>
                 ))}
