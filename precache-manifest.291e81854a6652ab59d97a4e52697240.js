@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "107e72a1778097af443e577b3d969a51",
+    "revision": "6bfcc2a4dfb02c18d4b09ab3bb1434bd",
     "url": "/humbertodutra/trybe-online-store-17/index.html"
   },
   {
-    "revision": "e1e90e48d7f3a58a7bc2",
+    "revision": "ea0e891787007208a0ba",
     "url": "/humbertodutra/trybe-online-store-17/static/css/main.aaac9626.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/humbertodutra/trybe-online-store-17/static/js/2.c87a54ad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e1e90e48d7f3a58a7bc2",
-    "url": "/humbertodutra/trybe-online-store-17/static/js/main.ed2e2bee.chunk.js"
+    "revision": "ea0e891787007208a0ba",
+    "url": "/humbertodutra/trybe-online-store-17/static/js/main.1b0d736c.chunk.js"
   },
   {
     "revision": "f6b4f141c43e0d125894",
