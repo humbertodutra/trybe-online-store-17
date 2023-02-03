@@ -11,7 +11,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1"
   },
-  "homepage": "https://github.com/humbertodutra/trybe-online-store-17",
+  "homepage": "https://humbertodutra.github.io/trybe-online-store-17",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -13,10 +13,10 @@ function App() {
 
     <Router>
       <Switch>
-        <Route exact path="/cart" component={ Cart } />
-        <Route path="/checkout" component={ Checkout } />
-        <Route exact path="/:id" component={ ProductDetails } />
         <Route path="/" component={ Home } />
+        <Route path="/cart" component={ Cart } />
+        <Route path="/checkout" component={ Checkout } />
+        <Route path="/:id" component={ ProductDetails } />
       </Switch>
     </Router>
 
