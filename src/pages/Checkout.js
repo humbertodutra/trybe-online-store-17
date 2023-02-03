@@ -23,6 +23,15 @@ class Checkout extends React.Component {
     this.setState({ savedItems });
   }
 
+  format = (total) => {
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+    const totalFormated = formatter.format(total);
+    return totalFormated;
+  }
+
   render() {
     const { savedItems } = this.state;
     let total = 0;
@@ -60,7 +69,7 @@ class Checkout extends React.Component {
               <span
                 className="__main--total"
               >
-                {`R$${(Math.round(total * 100) / 100).toFixed(2)}`}
+                {`Total do pedido: ${this.format(total)}`}
               </span>
               <KeepShoppingBtn />
             </aside>
@@ -131,18 +140,42 @@ class Checkout extends React.Component {
             </select>
             <fieldset className="__form--payment">
               <legend>Forma de pagamento</legend>
-              <input
-                type="radio"
-                value="credito"
-              />
-              <input
-                type="radio"
-                value="debito"
-              />
-              <input
-                type="radio"
-                value="boleto"
-              />
+              <label htmlFor="credito">
+                Cartão de Crédito
+                <input
+                  id="credito"
+                  type="radio"
+                  value="credito"
+                />
+              </label>
+
+              <label htmlFor="debito">
+                Cartão de Débito
+                <input
+                  id="debito"
+                  type="radio"
+                  value="debito"
+                />
+              </label>
+
+              <label htmlFor="boleto">
+                Boleto Bancário
+                <input
+                  id="boleto"
+                  type="radio"
+                  value="boleto"
+                />
+              </label>
+
+              <label htmlFor="pix">
+                Pix
+                <input
+                  id="pix"
+                  type="radio"
+                  value="boleto"
+                />
+              </label>
+
             </fieldset>
             <button
               className="__form--purchase"

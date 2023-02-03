@@ -22,9 +22,11 @@ class Cart extends React.Component {
     if (localStorage.length > 0) this.getCartItens();
   }
 
-  getCartItens = () => {
-    const savedItens = JSON.parse(localStorage.getItem('cartItems'));
-    this.setState({ savedItens });
+  getCartItens = async () => {
+    const itemsOnCart = await JSON.parse(localStorage.getItem('cartItems'));
+    this.setState({ savedItens: itemsOnCart });
+    const { savedItens } = this.state;
+    console.log(savedItens);
   }
 
   increaseQuantity = (product) => {
@@ -35,16 +37,33 @@ class Cart extends React.Component {
     });
     this.setState({ savedItens: newItens });
     localStorage.setItem('cartItems', JSON.stringify(savedItens));
+    this.totalPrinceOnCart();
   }
 
   decreaseQuantity = (product) => {
     const { savedItens } = this.state;
     const newItens = savedItens.map((crrItem) => {
-      if (crrItem.id === product.id) crrItem.quantity -= 1;
+      if (crrItem.id === product.id) {
+        if (crrItem.quantity > 0) crrItem.quantity -= 1;
+      }
       return crrItem;
     });
-    this.setState({ savedItens: newItens });
-    localStorage.setItem('cartItems', JSON.stringify(savedItens));
+    const filteredItens = newItens.filter((crrItem) => crrItem.quantity > 0);
+    this.setState({ savedItens: filteredItens });
+    localStorage.setItem('cartItems', JSON.stringify(filteredItens));
+    this.totalPrinceOnCart();
+  };
+
+  totalPrinceOnCart = () => {
+    const { savedItens } = this.state;
+    if (savedItens.length === 0) return 0;
+    const total = savedItens.reduce((acc, crr) => acc + (crr.price * crr.quantity), 0);
+    const formatter = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+    const totalFormated = formatter.format(total);
+    return totalFormated;
   }
 
   render() {
@@ -88,7 +107,8 @@ class Cart extends React.Component {
                 <span
                   className="cart-page__aside--price"
                 >
-                  Total: R$ xx,xx
+                  {savedItens.length === 0 ? 'Seu carrinho está vazio 😢'
+                    : `Subtotal: ${this.totalPrinceOnCart()}`}
                 </span>
                 <KeepShoppingBtn />
                 <CheckoutBtn />
