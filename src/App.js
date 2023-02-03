@@ -10,16 +10,16 @@ import './default.css';
 
 function App() {
   return (
-    <BrowserRouter basename={ process.env.PUBLIC_URL }>
-      <Router>
-        <Switch>
-          <Route exact path="/cart" component={ Cart } />
-          <Route path="/checkout" component={ Checkout } />
-          <Route exact path="/:id" component={ ProductDetails } />
-          <Route path="/" component={ Home } />
-        </Switch>
-      </Router>
-    </BrowserRouter>
+
+    <Router>
+      <Switch>
+        <Route exact path="/cart" component={ Cart } />
+        <Route path="/checkout" component={ Checkout } />
+        <Route exact path="/:id" component={ ProductDetails } />
+        <Route path="/" component={ Home } />
+      </Switch>
+    </Router>
+
   );
 }
 
