@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/trybe-online-store-17/precache-manifest.a51ce97727704b25ea3e9134dc13cb75.js"
+  "/trybe-online-store-17/precache-manifest.e1fa08d7bc92ebfd3270e219615dd104.js"
 );
 
 self.addEventListener('message', (event) => {
