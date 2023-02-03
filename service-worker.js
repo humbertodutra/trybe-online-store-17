@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/humbertodutra/Trybe-online-store-17/precache-manifest.7a234d0f9431f14acbc1fa69a274d735.js"
+  "/humbertodutra/Trybe-online-store-17/precache-manifest.7b8fe17a47149bf99025ab94dec09513.js"
 );
 
 self.addEventListener('message', (event) => {
